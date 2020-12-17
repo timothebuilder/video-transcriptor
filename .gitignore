@@ -1,1 +1,6 @@
-transcriptor_workspace/**
+*.wav
+*.sbv
+*.lang_trans
+*.mp3
+*.mp4
+*.mkv
