@@ -93,6 +93,13 @@ def write_to_work_file(file_name, text):
         file.write(text)
     print("Written to {}: {}s (lang_trans)".format(file_name, time.process_time() - start))
 
+def write_to_txt_file(file_name, text):
+    start = time.process_time()
+    file_path = workspace + "/" + file_name + ".txt"
+    with open(file_path, "w") as file:
+        file.write(text)
+    print("Written to {}: {}s (txt)".format(file_name, time.process_time() - start))
+
 def write_to_trans_file(file_name, text):
     start = time.process_time()
     file_path = workspace + "/" + file_name + ".sbv"
@@ -138,6 +145,6 @@ def write_translations():
 if __name__ == "__main__":
     subclip_to_audio(0, -1)
     text_de = segment_audio_to_text()
-    write_to_trans_file("text_de", text_de)
+    write_to_txt_file("text_de", text_de)
     write_to_trans_file("text_en", parse_transcript(translate_transcript("de", "en", workspace + "/text_de.sbv")))
     write_to_trans_file("text_es", parse_transcript(translate_transcript("en", "es", workspace + "/text_en.sbv")))
